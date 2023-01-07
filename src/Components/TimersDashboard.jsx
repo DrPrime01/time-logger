@@ -6,8 +6,9 @@ import ToggleableTimerForm from './ToggleableTimerForm'
 
 function TimersDashboard() {
   return (
-    <div>
-      
+    <div  className='d-flex flex-column mx-auto my-5 justify-content-center align-items-center'>
+      <EditableTimerForm />
+      <ToggleableTimerForm isOpen={true}/>
     </div>
   )
 }
