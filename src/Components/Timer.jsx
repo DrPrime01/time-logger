@@ -4,12 +4,16 @@ import { ImBin } from "react-icons/im";
 import { FaRegEdit } from "react-icons/fa";
 import {renderElapsedString} from "../assets/HelperFunctions/helper"
 
-function Timer({ title, project, elapsed, editFormTrue }) {
+function Timer({ title, project, elapsed, editFormTrue, deleteFormTrue }) {
   // const startStopBtn = elapsedIsRunning ? "Stop" : "Start";
   const elaspedString = renderElapsedString(elapsed);
   //function to open the form for editing
   function handleOpenEditForm() {
     editFormTrue();
+  }
+
+  function handleDeleteForm() {
+    deleteFormTrue();
   }
   return (
     <div className="border p-3 border-light-subtle rounded mb-3">
@@ -19,7 +23,7 @@ function Timer({ title, project, elapsed, editFormTrue }) {
       </div>
       <div className="elapsed text-center fs-3 fw-bold mb-1">{elaspedString}</div>
       <div className="buttons text-end mb-2">
-        <span><ImBin role="button"/></span>
+        <span onClick={handleDeleteForm}><ImBin role="button"/></span>
         <span className="ms-2" onClick={handleOpenEditForm}><FaRegEdit role="button"/></span>
       </div>
       <div className="start-stop-btn d-grid">

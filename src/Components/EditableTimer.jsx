@@ -16,6 +16,8 @@ function EditableTimer({ title, project, elapsed, runningSince, id, handleFormSu
     handleFormSubmit(timer);
     setEditFormOpen(false);
   }
+
+
   return (
     <div>
       {editFormOpen ? (
