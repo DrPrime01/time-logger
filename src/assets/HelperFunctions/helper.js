@@ -1,9 +1,9 @@
-
-    function newTimer(attrs = {}) {
+import {v4 as uuidv4} from "uuid";
+    export function newTimer(attrs = {}) {
       const timer = {
         title: attrs.title || 'Timer',
         project: attrs.project || 'Project',
-        id: uuid.v4(), // eslint-disable-line no-undef
+        id: uuidv4(), // eslint-disable-line no-undef
         elapsed: 0,
       };
   
