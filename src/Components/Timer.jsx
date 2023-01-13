@@ -8,7 +8,7 @@ function Timer({ title, project, elapsed, editFormTrue }) {
   // const startStopBtn = elapsedIsRunning ? "Stop" : "Start";
   const elaspedString = renderElapsedString(elapsed);
   //function to open the form for editing
-  function handleEditForm() {
+  function handleOpenEditForm() {
     editFormTrue();
   }
   return (
@@ -20,7 +20,7 @@ function Timer({ title, project, elapsed, editFormTrue }) {
       <div className="elapsed text-center fs-3 fw-bold mb-1">{elaspedString}</div>
       <div className="buttons text-end mb-2">
         <span><ImBin role="button"/></span>
-        <span className="ms-2" onClick={handleEditForm}><FaRegEdit role="button"/></span>
+        <span className="ms-2" onClick={handleOpenEditForm}><FaRegEdit role="button"/></span>
       </div>
       <div className="start-stop-btn d-grid">
         <button className="btn btn-primary">start</button>

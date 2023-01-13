@@ -1,7 +1,7 @@
 //for either adding new timer in ToggleableTimerForm or editing existing Timer in Timer
 import React, {useState} from 'react'
 
-function TimerForm({title, project, handleFormClose, handleFormSubmit, id}) {
+function TimerForm({title, project, handleFormClose, handleFormSubmit, id, handleCloseEditForm}) {
   const submitText = id ? "update" : "create";
   //set default form title as in editableTimer or empty value as in ToggleableTimerForm
   const [formTitle, setFormTitle] = useState(title || "");
@@ -18,6 +18,9 @@ function TimerForm({title, project, handleFormClose, handleFormSubmit, id}) {
   //close the form when user clicks "cancel" button in the toggleabletimerform
   function closeForm() {
     handleFormClose();
+  }
+  function closeEditForm() {
+    handleCloseEditForm();
   }
   //submit the form
   function submitForm() {
@@ -39,7 +42,7 @@ function TimerForm({title, project, handleFormClose, handleFormSubmit, id}) {
       </div>
       <div className='buttons d-flex justify-content-between'>
         <span><button className='btn btn-primary' onClick={submitForm}>{submitText}</button></span>
-        <span><button className='btn btn-danger' onClick={closeForm}>cancel</button></span>
+        <span><button className='btn btn-danger' onClick={id ? closeEditForm : closeForm}>cancel</button></span>
       </div>
     </div>
   )
