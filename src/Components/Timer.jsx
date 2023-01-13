@@ -4,7 +4,7 @@ import { ImBin } from "react-icons/im";
 import { FaRegEdit } from "react-icons/fa";
 import {renderElapsedString} from "../assets/HelperFunctions/helper"
 
-function Timer({ title, project, elapsed, editFormTrue, deleteFormTrue }) {
+function Timer({ title, project, elapsed, editFormTrue, onDeleteForm, id }) {
   // const startStopBtn = elapsedIsRunning ? "Stop" : "Start";
   const elaspedString = renderElapsedString(elapsed);
   //function to open the form for editing
@@ -13,7 +13,7 @@ function Timer({ title, project, elapsed, editFormTrue, deleteFormTrue }) {
   }
 
   function handleDeleteForm() {
-    deleteFormTrue();
+    onDeleteForm(id);
   }
   return (
     <div className="border p-3 border-light-subtle rounded mb-3">

@@ -54,11 +54,24 @@ function TimersDashboard() {
       })
     );
   }
+  //function to deleteForm
+  function deleteForm(id) {
+    setEditableTimerData(
+      editableTimerData.filter((editableTimerDatum) => {
+        return editableTimerDatum.id !== id;
+      })
+    );
+  }
+  //function to handle form delete
+  function handleDeleteForm(id) {
+    deleteForm(id);
+  }
   return (
     <div className="d-flex flex-column mx-auto my-5 justify-content-center align-items-center">
       <EditableTimerList
         editableTimerData={editableTimerData}
         handleFormSubmit={handleEditFormSubmit}
+        onDeleteForm={handleDeleteForm}
       />
       <ToggleableTimerForm handleFormSubmit={handleCreateFormSubmit} />
     </div>

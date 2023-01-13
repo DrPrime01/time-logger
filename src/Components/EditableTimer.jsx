@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Timer from "./Timer";
 import TimerForm from "./TimerForm";
-function EditableTimer({ title, project, elapsed, runningSince, id, handleFormSubmit }) {
+function EditableTimer({ title, project, elapsed, runningSince, id, handleFormSubmit, onDeleteForm }) {
   const [editFormOpen, setEditFormOpen] = useState(false);
   function editForm() {
     setEditFormOpen(true);
@@ -17,7 +17,6 @@ function EditableTimer({ title, project, elapsed, runningSince, id, handleFormSu
     setEditFormOpen(false);
   }
 
-
   return (
     <div>
       {editFormOpen ? (
@@ -30,6 +29,7 @@ function EditableTimer({ title, project, elapsed, runningSince, id, handleFormSu
           elapsed={elapsed}
           runningSince={runningSince}
           editFormTrue={editForm}
+          onDeleteForm={onDeleteForm}
         />
       )}
     </div>
