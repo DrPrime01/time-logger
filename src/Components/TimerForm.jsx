@@ -30,6 +30,8 @@ function TimerForm({title, project, handleFormClose, handleFormSubmit, id, handl
       project: formProject,
     });
   }
+  //submit edit form
+
   return (
     <div className='border p-3 border-light-subtle rounded mb-3'>
       <div className='title field'>
