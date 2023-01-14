@@ -92,21 +92,39 @@ function TimersDashboard() {
     stopClick(id);
   }
 //function to stop the timer
+  // function stopClick(id) {
+  //   const now = Date.now();
+  //   setEditableTimerData(
+  //     editableTimerData.map(editableTimerDatum => {
+  //       if (editableTimerDatum.id === id) {
+  //         const lastElapsed = now - editableTimerDatum.runningSince;
+  //         return Object.assign({}, editableTimerDatum, {
+  //           elapsed: lastElapsed + editableTimerDatum.elapsed,
+  //           runningSince: null
+  //         })
+  //       } else {
+  //         return editableTimerDatum;
+  //       }
+  //     })
+  //   )
+  // }
+
+  //function to stop the timer
   function stopClick(id) {
     const now = Date.now();
     setEditableTimerData(
       editableTimerData.map(editableTimerDatum => {
         if (editableTimerDatum.id === id) {
-          const lastElapsed = now - editableTimerDatum.runningSince;
+          const lastElapsed = now - +editableTimerDatum.runningSince;
           return Object.assign({}, editableTimerDatum, {
-            elapsed: lastElapsed + editableTimerDatum.elapsed,
+            elapsed: lastElapsed + +editableTimerDatum.elapsed,
             runningSince: null
-          })
+          });
         } else {
           return editableTimerDatum;
         }
       })
-    )
+    );
   }
   return (
     <div className="d-flex flex-column mx-auto my-5 justify-content-center align-items-center">

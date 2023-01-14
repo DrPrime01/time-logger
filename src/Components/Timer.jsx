@@ -1,9 +1,9 @@
 //renders the timer
 import React, { useEffect, useState } from "react";
-import { ImBin } from "react-icons/im";
-import { FaRegEdit } from "react-icons/fa";
-import { renderElapsedString } from "../assets/HelperFunctions/helper";
 import TimerActionButton from "./TimerActionButton";
+import { FaRegEdit } from "react-icons/fa";
+import { ImBin } from "react-icons/im";
+import { renderElapsedString } from "../assets/HelperFunctions/helper";
 
 function Timer({
   title,
@@ -17,12 +17,7 @@ function Timer({
   onStopClick
 }) {
   // const startStopBtn = elapsedIsRunning ? "Stop" : "Start";
-  const [_, forceUpdate] = useState();
-  useEffect(() => {
-    const forceUpdateInterval = setInterval(() => forceUpdate(), 50);
-    return () => clearInterval(forceUpdateInterval);
-  }, []);
-  const elaspedString = renderElapsedString(elapsed, runningSince);
+
   //function to open the form for editing
   function handleOpenEditForm() {
     editFormTrue();
@@ -45,9 +40,9 @@ function Timer({
         <h3 className="fs-2">{title}</h3>
         <p>{project}</p>
       </div>
-      <div className="elapsed text-center fs-3 fw-bold mb-1">
-        {elaspedString}
-      </div>
+
+      <ElapsedTimer elapsed={elapsed} runningSince={runningSince} />
+
       <div className="buttons text-end mb-2">
         <span onClick={handleDeleteForm}>
           <ImBin role="button" />
@@ -64,5 +59,24 @@ function Timer({
     </div>
   );
 }
+
+const ElapsedTimer = ({ elapsed, runningSince }) => {
+  const [_, forceUpdate] = useState(0);
+
+  useEffect(() => {
+    const forceUpdateInterval = setInterval(
+      () => forceUpdate(prev => (prev == 2 ? 0 : prev + 1)),
+      50
+    );
+    return () => clearInterval(forceUpdateInterval);
+  }, []);
+
+  const elaspedString = renderElapsedString(elapsed, runningSince);
+  // console.log("ran", elaspedString);
+
+  return (
+    <div className="elapsed text-center fs-3 fw-bold mb-1">{elaspedString}</div>
+  );
+};
 
 export default Timer;

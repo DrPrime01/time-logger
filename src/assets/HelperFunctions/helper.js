@@ -19,10 +19,18 @@ import {v4 as uuidv4} from "uuid";
       });
     }
   
+    // export function renderElapsedString(elapsed, runningSince) {
+    //   let totalElapsed = elapsed;
+    //   if (runningSince) {
+    //     totalElapsed += Date.now() - runningSince;
+    //   }
+    //   return millisecondsToHuman(totalElapsed);
+    // }
+
     export function renderElapsedString(elapsed, runningSince) {
-      let totalElapsed = elapsed;
+      let totalElapsed = +elapsed;
       if (runningSince) {
-        totalElapsed += Date.now() - runningSince;
+        totalElapsed += Date.now() - +runningSince;
       }
       return millisecondsToHuman(totalElapsed);
     }
