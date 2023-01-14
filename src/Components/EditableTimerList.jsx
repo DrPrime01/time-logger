@@ -2,7 +2,7 @@
 
 import React from "react";
 import EditableTimer from "./EditableTimer";
-function EditableTimersList({ editableTimerData, handleFormSubmit, onDeleteForm }) {
+function EditableTimersList({ editableTimerData, handleFormSubmit, onDeleteForm, onStartClick, onStopClick}) {
   
   return (
     <div>
@@ -17,6 +17,8 @@ function EditableTimersList({ editableTimerData, handleFormSubmit, onDeleteForm 
             runningSince={editableTimerDatum.runningSince}
             handleFormSubmit={handleFormSubmit}
             onDeleteForm={onDeleteForm}
+            onStartClick={onStartClick}
+            onStopClick={onStopClick}
           />
         );
       })}
